@@ -128,11 +128,11 @@ javascript:(function(){const t=document.title;const m=document.querySelector('me
 
         // ブックマークレットを実行（テスト用）
         function executeBookmarklet() {
-            const t=document.title;
-            const m=document.querySelector('meta[name="description"]');
-            const d=m?m.getAttribute('content'):'';
-            const u=window.location.href;
-            const text=t+'\n'+d+'\n'+u;
+            const title = document.title;
+            const metaElement = document.querySelector('meta[name="description"]');
+            const description = metaElement ? metaElement.getAttribute('content') : '';
+            const url = window.location.href;
+            const text = title + '\n' + description + '\n' + url;
             navigator.clipboard.writeText(text).then(function(){
                 const n=document.createElement('div');
                 n.textContent='コピーしました!';
