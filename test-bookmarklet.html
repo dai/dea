@@ -142,7 +142,9 @@ javascript:(function(){const t=document.title;const m=document.querySelector('me
                     n.style.transition='opacity 0.5s';
                     n.style.opacity='0';
                     setTimeout(function(){
-                        document.body.removeChild(n);
+                        if (document.body.contains(n)) {
+                            document.body.removeChild(n);
+                        }
                     },500);
                 },2000);
             }).catch(function(err){
