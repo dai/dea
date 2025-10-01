@@ -28,7 +28,9 @@ javascript:(function(){
       notification.style.transition = 'opacity 0.5s';
       notification.style.opacity = '0';
       setTimeout(function() {
-        document.body.removeChild(notification);
+        if (document.body.contains(notification)) {
+          document.body.removeChild(notification);
+        }
       }, 500);
     }, 2000);
   }).catch(function(err) {
